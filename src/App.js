@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { useAuthContext } from "./hooks/useAuthContext";
 // css
 import "./App.css";
 
@@ -9,22 +10,26 @@ import Signup from "./pages/sign-up/Signup";
 import Navbar from "./components/navbar/Navbar";
 
 function App() {
+  const { authIsReady } = useAuthContext();
   return (
     <div className="App">
-      <BrowserRouter>
-        <Navbar />
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route exact path="/login">
-            <Login />
-          </Route>
-          <Route exact path="/signup">
-            <Signup />
-          </Route>
-        </Switch>
-      </BrowserRouter>
+      {!authIsReady && <div>Loading...</div>}
+      {authIsReady && (
+        <BrowserRouter>
+          <Navbar />
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/login">
+              <Login />
+            </Route>
+            <Route exact path="/signup">
+              <Signup />
+            </Route>
+          </Switch>
+        </BrowserRouter>
+      )}
     </div>
   );
 }
