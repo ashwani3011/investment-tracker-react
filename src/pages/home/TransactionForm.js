@@ -27,7 +27,7 @@ export default function TransactionForm({ uid }) {
       <h3>Add a Transaction</h3>
       <form onSubmit={handleSubmit}>
         <label>
-          <span>Transaction name:</span>
+          <span>Investment name:</span>
           <input
             type="text"
             required
@@ -36,7 +36,7 @@ export default function TransactionForm({ uid }) {
           />
         </label>
         <label>
-          <span>Amount ($):</span>
+          <span>Amount (₹):</span>
           <input
             type="number"
             required
@@ -44,7 +44,7 @@ export default function TransactionForm({ uid }) {
             value={amount}
           />
         </label>
-        <button>Add Transaction</button>
+        <button>Add Investment</button>
       </form>
     </>
   );
