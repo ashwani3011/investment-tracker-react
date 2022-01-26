@@ -91,3 +91,18 @@
   font-size: 0.9em;
   cursor: pointer;
 }
+
+@media screen and (max-width: 480px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1;
+  }
+}
